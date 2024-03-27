@@ -18,8 +18,8 @@ import University.*;
 6. Класс Faculty должен содержать информацию о факультете (название) и список кафедр на этом факультете.
 7. Класс EducationalInstitution должен содержать список факультетов и методы для добавления новых факультетов, кафедр, групп и студентов.
  
- Необходимо сделать возможность создания факультетов и принятия студентов. Вывести на каком факультете учится заданный студент
- 
+ 1. Необходимо сделать возможность создания факультетов и принятия студентов. Вывести на каком факультете учится заданный студент
+ 2. Перевод студента с одного факультета на другой.
  */
 public class Main {
     
@@ -38,21 +38,24 @@ public class Main {
         Student student = new Student("Иванов", "Иван", 22, subjects);
 
         Group group = new Group("91");
+        Group group1 = new Group("1");
 
         group.addStudent(student);
 
 
         Department department = new Department("ПОиАИС");
+        Department department1 = new Department("1");
 
         department.addGroup(group);
-
+        department1.addGroup(group1);
 
         Faculty faculty = new Faculty("ПММ");
+        Faculty faculty1 = new Faculty("ФКН");
 
         faculty.addDepartment(department);
-
+        faculty1.addDepartment(department1);
         educationalInstitution.addFaculty(faculty);
-
+        educationalInstitution.addFaculty(faculty1);
 
         var faculties = getFacultiesOfStudent(educationalInstitution, "Иванов");
         System.out.println("Факультеты на которых учится Ивановы: ");
@@ -60,6 +63,51 @@ public class Main {
         for (String name : faculties) {
             System.out.print(name + ", ");
         }
+        System.out.println("");
+        transferToAnotherFaulty(educationalInstitution, student, "ФКН", "1", "1");
+    
+        faculties = getFacultiesOfStudent(educationalInstitution, "Иванов");
+        System.out.println("Факультеты на которых учится Ивановы: ");
+
+        for (String name : faculties) {
+            System.out.print(name + ", ");
+        }
+    
+    }
+
+    private static void transferToAnotherFaulty(EducationalInstitution educationalInstitution, Student studentToTransfer, String facultyName, String departmentName, String groupNum) {
+        
+        Group groupFromRemoved = null;
+        for (Faculty faculty : educationalInstitution.getFaculties()) {
+            for (Department department : faculty.getDepartments()) {
+                for (Group group : department.getGroups()) {
+                    for (Student student : group.getStudents()) {
+                        if (student.equals(studentToTransfer)) {
+                            groupFromRemoved = group;
+                        }
+                    }
+                }
+            }
+        }
+        if (groupFromRemoved != null) {
+        groupFromRemoved.removeStudent(studentToTransfer);
+        for (Faculty faculty : educationalInstitution.getFaculties()) {
+
+            if (faculty.getName().equals(facultyName)) {
+                for (Department department : faculty.getDepartments()) {
+                    if (department.getName().equals(departmentName)) {
+                        for (Group group : department.getGroups()) {
+                            if (group.getNumber().equals(groupNum)) {
+                                group.addStudent(studentToTransfer);
+                            }
+                        }
+                    }
+                    
+                }
+            }
+            
+        }
+    }
 
     }
 
