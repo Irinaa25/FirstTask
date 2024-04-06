@@ -1,4 +1,4 @@
-package University;
+package org.irina;
 
 public class Subject {
     private String name;

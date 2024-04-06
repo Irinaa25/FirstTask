@@ -1,4 +1,4 @@
-package University;
+package org.irina;
 
 import java.util.ArrayList;
 import java.util.List;
