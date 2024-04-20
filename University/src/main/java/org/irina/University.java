@@ -125,4 +125,8 @@ public class University {
 
     }
 
+    public EducationalInstitution getEducationalInstitution() {
+        return educationalInstitution;
+    }
+
 }
