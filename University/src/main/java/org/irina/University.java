@@ -69,7 +69,8 @@ public class University {
         }
     }
 
-    public void transferToAnotherFaulty(String studentNameToTransfer, String facultyName, String departmentName, String groupNum) {
+    public void transferToAnotherFaulty(String studentNameToTransfer, String facultyName, 
+    String departmentName, String groupNum) {
         
         Group groupFromRemoved = null;
         Student studentTotr = null;
