@@ -3,8 +3,6 @@ package org.irina;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.Set;
-import org.slf4j.impl.StaticLoggerBinder;
-import org.irina.FileReader;
 
 public class Main {
 
