@@ -1,28 +1,36 @@
 pipeline {
     agent any
     
+    environment {
+        JAVA_HOME = '/usr/local/Cellar/openjdk/21.0.3/libexec/openjdk.jdk/Contents/Home'
+        MAVEN_HOME = '/usr/local/Cellar/maven/3.9.6/libexec'
+    }
+    
     stages {
         stage("Compile code") {
             steps {
-                bat 'mvn clean compile'
+                sh '/usr/local/Cellar/maven/3.9.6/libexec/bin/mvn clean compile'
             }
         }
+        
         stage("Tests") {
             when {
                 branch 'feature/*'
             }
             steps {
-                bat 'mvn test'
+                sh '/usr/local/Cellar/maven/3.9.6/libexec/bin/mvn test'
             }
         }
+        
         stage("Static analyse") {
             when {
                 branch 'develop'
             }
             steps {
-                bat 'mvn checkstyle:check'
+                sh '/usr/local/Cellar/maven/3.9.6/libexec/bin/mvn checkstyle:check'
             }
         }
+        
         stage("Report") {
             when {
                 branch 'feature/*'
@@ -32,14 +40,16 @@ pipeline {
                 jacoco()
             }
         }
+        
         stage("Install") {
             steps {
-                bat 'mvn install'
+                sh '/usr/local/Cellar/maven/3.9.6/libexec/bin/mvn install'
             }
         }
+        
         stage("Publish") {
             steps {
-                bat 'copy "main\\target\\main-1.0-SNAPSHOT-jar-with-dependencies.jar" "D:\\main-1.0.jar"'
+                sh 'cp main/target/main-1.0-SNAPSHOT-jar-with-dependencies.jar /Users/resetovsergej/Desktop'
             }
         }
     }

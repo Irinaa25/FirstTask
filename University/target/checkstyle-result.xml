@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="C:\FirstTask\University\src\main\java\org\irina\Department.java">
+</file>
+<file name="C:\FirstTask\University\src\main\java\org\irina\EducationalInstitution.java">
+</file>
+<file name="C:\FirstTask\University\src\main\java\org\irina\Faculty.java">
+</file>
+<file name="C:\FirstTask\University\src\main\java\org\irina\Group.java">
+</file>
+<file name="C:\FirstTask\University\src\main\java\org\irina\Student.java">
+</file>
+<file name="C:\FirstTask\University\src\main\java\org\irina\Subject.java">
+</file>
+<file name="C:\FirstTask\University\src\main\java\org\irina\University.java">
+</file>
+</checkstyle>
