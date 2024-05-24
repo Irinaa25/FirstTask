@@ -139,7 +139,7 @@ public class University {
         return educationalInstitution;
     }
 
-    public String NewFunc(Student student){
+    public String NewFunc(Student student) {
         return student.getFirstName();
 
     }
