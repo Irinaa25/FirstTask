@@ -23,4 +23,5 @@ public class EducationalInstitution {
     public void setFaculties(List<Faculty> faculties) {
         this.faculties = faculties;
     }
+
 }

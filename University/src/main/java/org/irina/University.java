@@ -40,6 +40,15 @@ public class University {
         return null;
     }
 
+    public Group findGroup(List<Group> groups, String s) {
+        for (Group group : groups) {
+            if (group.getNumber().equals(s)) {
+                return group;
+            }
+        }
+        return null;
+    }
+
     public void createUniversity(List<String> universityInfo) {
         for (String info : universityInfo) {
 
@@ -130,4 +139,8 @@ public class University {
         return educationalInstitution;
     }
 
+    public String NewFunc(Student student){
+        return student.getFirstName();
+
+    }
 }

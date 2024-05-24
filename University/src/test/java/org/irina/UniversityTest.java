@@ -41,5 +41,11 @@ public class UniversityTest {
        assertEquals(true, university.getFacultiesOfStudent("AaaaaaA").contains("AMM"));
     }
 
+    @Test
+    @Order(3)
+    public void checkFirstName() {
+       Student student = new Student("Демидова", "Ирина",22);
+       assertEquals("Демидова", university.NewFunc(student));
+    }
 
 }
