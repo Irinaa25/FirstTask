@@ -45,7 +45,7 @@ public class UniversityTest {
     @Order(3)
     public void checkFirstName() {
        Student student = new Student("Демидова", "Ирина",22);
-       assertEquals("Демидова", university.NewFunc(student));
+       assertEquals("Демидова2", university.NewFunc(student));
     }
 
 }
